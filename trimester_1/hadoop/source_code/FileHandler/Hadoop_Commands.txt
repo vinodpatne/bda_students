@@ -1,0 +1,17 @@
+
+mkdir -p /home/cloudera/practice/data
+cd /home/cloudera/practice
+mkdir mr-jars
+
+# Copy (drag & drop) data/vehicles.txt to /home/cloudera/practice/mr-jars directory in VM
+# Copy (drag & drop) dist/wordcount.jar to /home/cloudera/practice/data directory in VM
+
+hdfs dfs -ls /user
+hdfs dfs -mkdir -p /user/cloudera/data
+hdfs dfs -put data/vehicles.txt /user/cloudera/data/
+
+hdfs dfs -ls /user/cloudera/data/
+
+hadoop jar mr-jars/wordcount.jar /user/cloudera/data/vehicles.txt /user/cloudera/data/mroutput
+
+hdfs dfs -ls /user/cloudera/data/mroutput
